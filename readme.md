@@ -171,10 +171,21 @@ docker compose down -v
 `demo.robot` includes basic SQL validation tests to check database integrity **without modifying data**.  
 
 #### **✅ Test Cases Covered:**  
-- Check if the `CombinedData` table exists  
-- Verify row count in `CombinedData`  
-- Validate a specific record exists  
-- Ensure required columns are present  
+
+## Test Cases Covered
+
+1. **Verify Customers Table Exists in DB1**  
+   - Connects to **InsuranceDB1** and checks that the `Customers` table is present.  
+   - Logs the query and its result to help diagnose issues.
+
+2. **Check CorporateCustomers Has Rows in DB2**  
+   - Connects to **InsuranceDB2** and queries the `CorporateCustomers` table.  
+   - Fails if the table is empty, ensuring at least one row exists.
+
+3. **Ensure ProcessingCenters Table in DB3 is Not Empty**  
+   - Connects to **InsuranceDB3** to confirm the `ProcessingCenters` table exists.  
+   - Also verifies the table contains at least one row.
+
 
 #### **🚀 Run the Tests:**  
 ```bash
