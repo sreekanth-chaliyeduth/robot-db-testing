@@ -29,8 +29,10 @@ This guide demonstrates how to use **Robot Framework** for **database testing** 
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+# Clone the repository
+git clone https://github.com/sreekanth-chaliyeduth/robot-db-testing.git
+# Navigate into the project folder
+cd robot-db-testing
 ```
 
 ### **2️⃣ Run Robot Framework Tests Before Starting Docker (Show Failures)**
