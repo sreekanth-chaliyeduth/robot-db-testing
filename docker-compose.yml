@@ -1,0 +1,115 @@
+version: "3.8"
+services:
+  db1:
+    image: mysql:8.0
+    container_name: insurance_mysql1
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Setting a specific root password
+      MYSQL_DATABASE: InsuranceDB1
+      MYSQL_USER: myuser        # Creating a specific user
+      MYSQL_PASSWORD: mypass    # Setting user password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql1_data:/var/lib/mysql
+      - ./data/insurance-db1.sql:/docker-entrypoint-initdb.d/insurance-db1.sql
+    networks:
+      - my_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  db2:
+    image: mysql:8.0
+    container_name: insurance_mysql2
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: InsuranceDB2
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql2_data:/var/lib/mysql
+      - ./data/insurance-db2.sql:/docker-entrypoint-initdb.d/insurance-db2.sql
+    networks:
+      - my_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  db3:
+    image: mysql:8.0
+    container_name: insurance_mysql3
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: InsuranceDB3
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypass
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql3_data:/var/lib/mysql
+      - ./data/insurance-db3.sql:/docker-entrypoint-initdb.d/insurance-db3.sql
+    networks:
+      - my_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  phpmyadmin1:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin1
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db1
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "8080:80"
+    depends_on:
+      - db1
+    networks:
+      - my_network
+
+  phpmyadmin2:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin2
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db2
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "8081:80"
+    depends_on:
+      - db2
+    networks:
+      - my_network
+
+  phpmyadmin3:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin3
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db3
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 300M
+    ports:
+      - "8082:80"
+    depends_on:
+      - db3
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  mysql1_data:
+  mysql2_data:
+  mysql3_data:

@@ -1,0 +1,40 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore logs and reports from Robot Framework
+output.xml
+log.html
+report.html
+results/
+logs/
+
+# Ignore database files and temporary data
+*.db
+*.sqlite3
+*.sql-journal
+data/*.sql-backup
+
+# Ignore Docker-generated files
+docker-compose.override.yml
+docker_logs/
+
+# Ignore environment and dependency files
+.env
+venv/
+.envrc
+
+# Ignore IDE and OS-specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Ignore Python virtual environment
+venv/
+*.egg-info/
+
+# Ignore generated SQL output files
+new-db.sql
