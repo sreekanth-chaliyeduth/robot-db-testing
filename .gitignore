@@ -7,7 +7,6 @@ __pycache__/
 # Ignore logs and reports from Robot Framework
 output.xml
 log.html
-report.html
 results/
 logs/
 
@@ -37,4 +36,4 @@ venv/
 *.egg-info/
 
 # Ignore generated SQL output files
-new-db.sql
+# new-db.sql

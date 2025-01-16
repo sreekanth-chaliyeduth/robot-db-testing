@@ -169,8 +169,14 @@ docker compose down -v
 
 ---
 
-robot exception.robot string.robot test.robot
 
-docker compose down -v
-
+## **📌 Quick Access Commands**
+```bash
 docker compose up -d
+docker compose down -v
+robot exception.robot string.robot
+```
+
+---
+
+
