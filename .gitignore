@@ -9,6 +9,7 @@ output.xml
 log.html
 results/
 logs/
+interactive_console_output.xml
 
 # Ignore database files and temporary data
 *.db

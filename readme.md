@@ -167,6 +167,21 @@ python combine_databases_return_strings.py
 docker compose down -v
 ```
 
+### **🛠️ Simple SQL Operations (`demo.robot`)**  
+`demo.robot` includes basic SQL validation tests to check database integrity **without modifying data**.  
+
+#### **✅ Test Cases Covered:**  
+- Check if the `CombinedData` table exists  
+- Verify row count in `CombinedData`  
+- Validate a specific record exists  
+- Ensure required columns are present  
+
+#### **🚀 Run the Tests:**  
+```bash
+robot demo.robot
+```
+These tests help confirm the database structure and data presence. 
+
 ---
 
 
@@ -174,7 +189,7 @@ docker compose down -v
 ```bash
 docker compose up -d
 docker compose down -v
-robot exception.robot string.robot
+robot exception.robot string.robot demo.robot
 ```
 
 ---
