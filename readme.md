@@ -166,13 +166,12 @@ python combine_databases_return_strings.py
 ```bash
 docker compose down -v
 ```
+---
 
-### **🛠️ Simple SQL Operations (`demo.robot`)**  
+## **🛠️ Simple SQL Operations (`demo.robot`)**  
 `demo.robot` includes basic SQL validation tests to check database integrity **without modifying data**.  
 
-#### **✅ Test Cases Covered:**  
-
-## Test Cases Covered
+### **✅ Test Cases Covered:**  
 
 1. **Verify Customers Table Exists in DB1**  
    - Connects to **InsuranceDB1** and checks that the `Customers` table is present.  
